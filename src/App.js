@@ -1,19 +1,15 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import './App.css'
 import Header from './components/Header/Header'
-import Post from './components/Post/Post'
+import Home from './components/Home/Home'
 
 
 function App() {
 
-  const [posts, setPosts] = useState([])
-
   return (
     <div className="app">
       <Header />
-      <Post username='user1' caption='caption1' image='test.png'/>
-      <Post username='user2' caption='caption2' image='image1.jpg'/>
-      <Post username='user3' caption='caption3' image='image2.jpg'/>
+      <Home />
     </div>
   )
 }

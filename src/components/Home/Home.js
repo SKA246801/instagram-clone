@@ -8,15 +8,18 @@ function Home() {
 
     useEffect(() => {
         db.collection('posts').onSnapshot(snapshot => {
-        setPosts(snapshot.docs.map(doc => doc.data()))
+            setPosts(snapshot.docs.map(doc => ({
+                id: doc.id,
+                post: doc.data()
+            })))
         })
     }, [])
 
   return (
-    <div>
+    <div className='homepage'>
         {
-        posts.map(post => (
-          <Post username={post.username} caption={post.caption} image={post.image}/>
+        posts.map(({id, post}) => (
+          <Post key={id} username={post.username} caption={post.caption} image={post.image}/>
         ))
       }
     </div>

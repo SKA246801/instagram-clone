@@ -17,7 +17,6 @@ function Header() {
   useEffect(() => {
     const unsubscribe = auth.onAuthStateChanged(authUser => {
       if (authUser) {
-        console.log(authUser)
         setUser(authUser)
       } else {
         setUser(null)
@@ -41,6 +40,17 @@ function Header() {
       })
     })
     .catch(e => alert(e.message))
+
+    setOpen(false)
+  }
+
+  const signIn = e => {
+    e.preventDefault()
+
+    auth.signInWithEmailAndPassword(email, password)
+    .catch(e => alert(e.message))
+
+    setOpenSignIn(false)
   }
   
   return (
@@ -65,15 +75,14 @@ function Header() {
               <center>
                 <img className='instagram-logo' src={require('../../assets/img/instagram-logo.png')} alt='instagram-logo' />
               </center>
-              <Input placeholder='username' type='text' value={username} onChange={e => setUsername(e.target.value)} />
               <Input placeholder='email' type='text' value={email} onChange={e => setEmail(e.target.value)} />
               <Input placeholder='password' type='password' value={password} onChange={e => setPassword(e.target.value)} />
-              <Button onClick={signUp}>Sign Up</Button>
+              <Button onClick={signIn}>Sign In</Button>
             </form>
           </Box>
         </Modal>
         { user ? (
-          <Button onClick={() => auth.signOut()}>Logout</Button>
+          <Button onClick={() => auth.signOut()}>Logout</Button> 
         ) : (
           <div>
             <Button onClick={() => setOpenSignIn(true)}>Sign In</Button>

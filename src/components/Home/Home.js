@@ -4,16 +4,16 @@ import { db } from '../../firebase'
 
 function Home() {
 
-    const [posts, setPosts] = useState([])
+  const [posts, setPosts] = useState([])
 
-    useEffect(() => {
-        db.collection('posts').onSnapshot(snapshot => {
-            setPosts(snapshot.docs.map(doc => ({
-                id: doc.id,
-                post: doc.data()
-            })))
-        })
-    }, [])
+  useEffect(() => {
+      db.collection('posts').orderBy('timestamp', 'desc').onSnapshot(snapshot => {
+          setPosts(snapshot.docs.map(doc => ({
+              id: doc.id,
+              post: doc.data()
+          })))
+      })
+  }, [])
 
   return (
     <div className='homepage'>

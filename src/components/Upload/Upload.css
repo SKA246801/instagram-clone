@@ -1,0 +1,10 @@
+.upload {
+    display: flex;
+    flex-direction: column;
+    width: 55%;
+    margin: 10px auto;
+}
+
+.progress-bar {
+    width: 100%;
+}

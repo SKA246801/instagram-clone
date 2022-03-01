@@ -7,9 +7,14 @@
 }
 
 .header {
+  position: sticky;
+  top: 0;
+  z-index: 1;
   background-color: white;
   padding: 20px;
   border-bottom: 1px solid lightgray;
+  display: flex;
+  justify-content: space-between;
 }
 
 .instagram-logo {
@@ -30,4 +35,8 @@
 .signup-form {
   display: flex;
   flex-direction: column;
+}
+
+.homepage {
+  padding: 20px;
 }

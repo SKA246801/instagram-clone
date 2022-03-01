@@ -1,4 +1,5 @@
 import React, { useState } from 'react'
+import './Upload.css'
 import { Button } from '@mui/material'
 import { db, storage } from '../../firebase'
 import firebase from 'firebase/compat/app'
@@ -48,8 +49,8 @@ function Upload({ username }) {
     }
 
   return (
-    <div>
-        <progress value={progress} max='100' />
+    <div className='upload'>
+        <progress className='progress-bar'value={progress} max='100' />
         <input type='text' placeholder='Enter a caption...' value={caption} onChange={e => setCaption(e.target.value)}/>
         <input type='file' onChange={handleChange} />
         <Button onClick={handleUpload}>

@@ -49,13 +49,15 @@ function Upload({ username }) {
     }
 
   return (
-    <div className='upload'>
-        <progress className='progress-bar'value={progress} max='100' />
-        <input type='text' placeholder='Enter a caption...' value={caption} onChange={e => setCaption(e.target.value)}/>
-        <input type='file' onChange={handleChange} />
-        <Button onClick={handleUpload}>
-            Upload
-        </Button>
+    <div className='upload-container'>
+        <div className='upload'>
+            <progress className='progress-bar'value={progress} max='100' />
+            <input type='text' placeholder='Enter a caption...' value={caption} onChange={e => setCaption(e.target.value)}/>
+            <input type='file' onChange={handleChange} />
+            <Button onClick={handleUpload}>
+                Upload
+            </Button>
+        </div>
     </div>
   )
 }

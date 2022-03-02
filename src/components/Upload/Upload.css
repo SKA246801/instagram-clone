@@ -1,8 +1,19 @@
+.upload-container {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+
 .upload {
+    position: fixed;
+    bottom: 0;
+    padding: 10px 500px;
+    float: center;
     display: flex;
     flex-direction: column;
+    border-top: 1px solid lightgray;
+    background-color: white;
     width: 55%;
-    margin: 10px auto;
 }
 
 .progress-bar {

@@ -158,7 +158,9 @@ function App() {
       {user ? (
         <Upload username={user.displayName} />
       ) : (
-        <h3>Login to upload a post</h3>
+        <div className='upload'>
+          <h3>Login to upload a post</h3>
+        </div>
       )}
     </div>
   );
